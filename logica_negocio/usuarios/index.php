@@ -122,14 +122,14 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label>DUI</label>
-                                <input type="text" autocomplete="off" name="dui" data-parsley-required-message="Campo  requerido" id="dui" maxlength="10" class="form-control" required placeholder="Ingrese su dui"/>
+                                <input data-mask="99999999-9"  type="text" autocomplete="off" name="dui" data-parsley-required-message="Campo  requerido" id="dui" maxlength="10" class="form-control" required placeholder="Ingrese su dui"/>
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label>Teléfono</label>
-                                <input type="text" autocomplete="off" name="telefono" data-parsley-required-message="Campo  requerido" id="telefono" class="form-control" required placeholder="Ingrese su telefono"/>
+                                <input type="text" autocomplete="off" name="telefono" data-parsley-required-message="Campo  requerido" data-mask="9999-9999" id="telefono" class="form-control" required placeholder="Ingrese su telefono"/>
                               </div>
                             </div>
 
@@ -177,12 +177,40 @@
                             </div>
 
 
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">Departamentos</label>
+                                <select id="depto" name="depto" class="form-control select2">
+                                     
+                                     
+                                </select>               
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">Municipio</label>
+                                <select id="municipio" name="municipio" class="form-control select2">
+                                     
+                                </select>               
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Seleccione imagen</label>
+                                    <input id="imagen_persona" name="imagen_persona"  data-buttonText="Seleccionar" type="file" class="filestyle" data-buttonname="btn-secondary">
+                                    <label style="display:none;font-size: 12px; list-style: none; color: #ea553d; margin-top: 5px;" id="error_en_la_imagen">La imagen no es valida</label>
+                                    
+                                </div>
+                            </div>
+
+
 
                           </div>
                      
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button"  class="btn btn-secondary btn_cerrar_class">Cerrar</button>
                     <button type="submit" id="boton_enviar"  class="btn btn-primary">Guardar</button>
                     </form>
                   </div>
@@ -234,13 +262,12 @@
     <!-- App js -->
     <script src="../../public/assets/js/app.js"></script>
     <script src="../../public/plugins/select2/js/select2.min.js"></script>
+    
 
-    <script>
-        var fecha  = '<?php print date("Y-m-d") ?>';
-    </script>
+    
+    
+    <script src="../../public/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
     <script src="funciones_usuarios.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="../../public/plugins/parsleyjs/parsley.min.js"></script>
-    <script src="../../public/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 </body>
 </html>

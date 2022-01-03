@@ -1,3 +1,22 @@
+<?php 
+    @session_start(); 
+    if (isset($_SESSION['logueado']) && $_SESSION['logueado']=="si") {
+        if ($_SESSION['bloquear_pantalla']=="no") {
+            // code...
+            
+        }else{
+             
+            header("Location: ../ingreso/bloqueo.php");
+             
+        }
+    }else{
+          header("Location: ../ingreso/index.php");
+    }
+
+
+    require_once("../../Conexion/Configuraciones.php"); 
+?>
+
 <!-- Top Bar Start -->
 <div class="topbar">
 
@@ -31,9 +50,9 @@
                     <a class="dropdown-item" href="#"><i class="dripicons-user text-muted"></i> Perfil</a>
                      
                      
-                    <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted"></i> Bloquear pantalla</a>
+                    <a class="dropdown-item" href="../ingreso/bloqueo.php"><i class="dripicons-lock text-muted"></i> Bloquear pantalla</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted"></i> Salir</a>
+                    <a class="dropdown-item" href="../ingreso/destruir.php"><i class="dripicons-exit text-muted"></i> Salir</a>
                 </div>
             </li>
         </ul>
@@ -46,7 +65,7 @@
                 </button>
             </li>
             <li class="hide-phone list-inline-item app-search">
-                <h3 class="page-title"><?php print $_GET['modulo'] ?></h3>
+                <h3 class="page-title"><?php print (isset($_GET['modulo']) ? $_GET['modulo']:""); ?></h3>
             </li>
         </ul>
 
